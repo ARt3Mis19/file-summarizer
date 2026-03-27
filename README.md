@@ -3,6 +3,7 @@
 
 
 A simple Python CLI tool that reads any `.txt` file and prints a word count, line count, and first 3 lines preview.
+Right now it can only read .txt files. im working to make it read other filetypes too :)
 
 
 
