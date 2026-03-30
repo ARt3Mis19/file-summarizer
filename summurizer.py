@@ -1,6 +1,25 @@
 import sys
 import os
+import csv
+import json
 
+# All file types we support
+SUPPORTED_TYPES = [".txt", ".md", ".log", ".csv", ".json"]
+
+def summarize_txt_md_log(lines, ext):
+    """Handle .txt, .md, .log — all plain text files"""
+    full_text = "".join(lines)
+    word_count = len(full_text.split())
+    preview = [line.rstrip() for line in lines if line.strip()][:3]
+
+    print(f"  Type    : {ext} (plain text)")
+    print(f"  Words   : {word_count}")
+    print(f"  Lines   : {len(lines)}")
+    print("=" * 40)
+    print("  Preview (first 3 lines):")
+    print()
+    for i, line in enumerate(preview, 1):
+        print(f"  {i}. {line}")
 
 def summarize_file(filepath):
     # Validate file exists and is a .txt file
